@@ -36,21 +36,27 @@ where users can log in or register -->
     @endif
     <a style="text-decoration:none" class="but right" href='{{url("item/create")}}'>Add New Item</a>
     </p>
-    <ul class="center">
+    
     <!-- printing current items in database -->
-    @foreach($items as $item)
-        <p style="display:inline-block;">
-        <div class ="row">
-            <div class="column">
-                <a href='{{url("item/$item->id/1")}}'>{{$item->itemName}}</a><br>
-                <img src="{{url($item->image)}}" alt="item image" style="width:250px;height:300px">
+    <?php 
+        $length = sizeof($items);
+    ?>
+    @for($x = 0; $x < $length; $x++)
+      
+        <div class ="row classWithPad">
+            <div class="col-md-9 classWithPad"> 
+                <div>
+                    <a href='{{url("items[$x]/$items[$x]->id/1")}}'>{{$items[$x]->itemName}}</a><br>
+                    <img src="{{url($items[$x]->image)}}" alt="item image" style="width:250px;height:300px">
+                </div>
             </div>
+           
         </div>
-        </p>
-    @endforeach
+  
+    @endfor
 
-</ul>
+
 <!-- pagination links -->
-{{$items->links()}}
+
 
 @endsection

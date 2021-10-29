@@ -105,6 +105,15 @@ address { margin-left: 0in; font-style: italic; }
     padding: 20px;
     
 }
+.grid{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.classWithPad { margin:10px; padding-left:10px; }
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+ }
 
 a:hover { 
             

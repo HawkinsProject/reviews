@@ -26,7 +26,7 @@ class ItemController extends Controller
     {
         $follows = Follow::all();
         $users = User::all();
-        $items = Item::paginate(3);
+        $items = Item::all();
         $i = 0;
         return view('items.index')->with('items', $items)->with('follows', $follows)
         ->with('users', $users)->with('$i', $i);
